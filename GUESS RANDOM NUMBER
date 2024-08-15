@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+int main() {
+    srand(time(0));
+    int randomno = rand() % 100 + 1;
+
+    int guess;
+    int attempt = 0;
+
+    std::cout << "Welcome to the game!" << std::endl;
+
+    do {
+        std::cout << "Enter the guess number (1-100): ";
+        std::cin >> guess;
+
+        attempt++;
+
+        if (guess < randomno) {
+            std::cout << "The no is Too low! Try again." << std::endl;
+        } else if (guess > randomno) {
+            std::cout << "The no is Too high! Try again." << std::endl;
+        } else {
+            std::cout << "Congrats! You guessed the number in " << attempt << " attempts." << std::endl;
+        }
+    } while (guess != randomno);
+
+    return 0;
+}
